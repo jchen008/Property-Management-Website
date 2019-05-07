@@ -2,6 +2,7 @@ $('#insert').click(insert_data);
 $('#delete').click(delete_data);
 $('#update1').click(update_data);
 
+// insert data
 function insert_data(event){
     event.preventDefault();
     console.log('Insert Data');
@@ -21,6 +22,7 @@ function insert_data(event){
     });
 }
 
+// update data
 function update_data(event){
     event.preventDefault();
     console.log('update Data');
@@ -40,6 +42,7 @@ function update_data(event){
     });
 }
 
+// delete data
 function delete_data(event){
     event.preventDefault();
 	console.log('Delete Data');
@@ -53,14 +56,17 @@ function delete_data(event){
     });
 }
 
+// handle success redirect
 function handleInsertResponse(data){
 	 window.location.reload(true);
 }
 
+// handle success redirect
 function handleDeleteResponse(data){
 	 window.location.reload(true);
 }
 
+// handle success redirect
 function handleUpdateResponse(data){
     console.log('reload web to original web')
     window.location = 'http://localhost:5000/task2'

@@ -7,6 +7,7 @@ app = Flask(__name__)
 def welcome():
 	return "Welcome!"
 
+# Task 1
 @app.route("/task1")
 def task1():
 	return "Hello World!"

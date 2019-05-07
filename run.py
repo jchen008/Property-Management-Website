@@ -17,16 +17,16 @@ def task1():
 def task2():
 	try:
 		# Show database
-	   con = sql.connect("Database.db")
-	   con.row_factory = sql.Row
-	   
-	   cur1 = con.cursor()
-	   cur1.execute("select * from Property")
-	   Query1 = cur1.fetchall();
-
-	   cur2 = con.cursor()
-	   cur2.execute("select Count(*)as PropertyNum, SUM(MarketValue)as TotalMarketValue, SUM(Cost) as TotalCost, (SUM(MarketValue) - SUM(Cost)) as ProfitOrLoss from Property")
-	   Query2 = cur2.fetchall()
+		con = sql.connect("Database.db")
+		con.row_factory = sql.Row
+	   	# full database
+		cur1 = con.cursor()
+		cur1.execute("select * from Property")
+		Query1 = cur1.fetchall();
+		# summary 
+		cur2 = con.cursor()
+		cur2.execute("select Count(*)as PropertyNum, SUM(MarketValue)as TotalMarketValue, SUM(Cost) as TotalCost, (SUM(MarketValue) - SUM(Cost)) as ProfitOrLoss from Property")
+		Query2 = cur2.fetchall()
 	except Error as e:
 		print(e)
 	finally:
@@ -90,7 +90,7 @@ def task3_edit(id):
 	finally:
 		return render_template("edit.html", Query1 = Query1, id = property_id)
 
-
+# Task 3 Edit Helper
 @app.route('/task3_edit_data', methods=['POST'])
 def task3_edit_data():
 	data = request.form
@@ -99,7 +99,7 @@ def task3_edit_data():
 	city = data['City']
 	market_val = data['MarketValue']
 	cost = data['Cost']
-	print(data)
+	# manipulate database
 	try:
 
 		with sql.connect("Database.db") as con:

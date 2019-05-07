@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Property</title>
+
+    <!-- Bootstrap Core CSS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+
+
+   <body>
+      <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    Property
+                </a>
+            </div>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class = "active">
+                        <a href="../../index.php">Home</a>
+                    </li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+        <div class="container">
+            <h1 class="page-header"></h1>
+        </div>
+        <div class="container">
+          <input type="hidden" value="{{id}}" id='property_id' >
+            <form method="post" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter PropertyName" required>
+                        </div>
+                        </div>
+                        <div class="col-sm-2">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="city" id="city" placeholder="Enter City" required>
+                        </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="value" id="value" placeholder="Enter MarketValue" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="cost" id="cost" placeholder="Enter Cost" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                           <div class="form-group">
+                               <button type="submit" name="update1" id="update1" value="Update" class="btn btn-info pull-right" required="required">Update</button>
+                           </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+        <div class="container">
+         <div class="container-fluid">
+            <div class="row">
+              <div class="col-6 align-self-center">
+                  <table class = "table table-bordered table-striped text-center" border = 1>
+                     <thead>
+                        <td>PropertyID</td>
+                        <td>PropertyName</td>
+                        <td>City</td>
+                        <td>MarketValue</td>
+                        <td>Cost</td>
+                     </thead>
+                     <!-- <input type="text" data-row="2" data-col="2" data-val="i" value="i" /> -->
+                     {% for row in Query1 %}
+                        <tr>
+                           <td>{{row["PropertyID"]}}</td>
+                           <td contenteditable="true">{{row["PropertyName"]}}</td>
+                           <td contenteditable="true"> {{row["City"]}}</td>
+                           <td contenteditable="true">{{row['MarketValue']}}</td> 
+                           <td contenteditable="true">{{row['Cost']}}</td>
+                        </tr>
+                     {% endfor %}
+                  </table>
+               </div>
+            </div>  
+         </div>    
+      </div>
+      
+      <script src="{{ url_for('static', filename='js/property.js') }}"></script>
+   </body>
+</html>

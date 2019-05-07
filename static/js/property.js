@@ -25,10 +25,11 @@ function update_data(event){
     event.preventDefault();
     console.log('update Data');
     var json_data = { "PropertyID" : $('#property_id').val(),
-                    "PropertyName": $('#name').val(),
-                     "City": $('#city').val(), 
-                     "MarketValue": $('#value').val(), 
-                     "Cost": $('#cost').val()};
+                    "PropertyName": $('#name').text(),
+                     "City": $('#city').text(), 
+                     "MarketValue": $('#value').text(), 
+                     "Cost": $('#cost').text()};
+    console.log(json_data)
 
     var input_data = JSON.stringify(json_data);
     $.ajax({

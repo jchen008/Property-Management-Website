@@ -41,27 +41,10 @@
           <input type="hidden" value="{{id}}" id='property_id' >
             <form method="post" novalidate="novalidate">
                     <div class="row">
-                        <div class="col-sm-2">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter PropertyName" required>
-                        </div>
-                        </div>
-                        <div class="col-sm-2">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="city" id="city" placeholder="Enter City" required>
-                        </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="value" id="value" placeholder="Enter MarketValue" required>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="cost" id="cost" placeholder="Enter Cost" required>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
+                      <div class="col-sm-9">
+                        <h3>Update values by clicking the corresponding cells</h3>
+                      </div>
+                        <div class="col-sm-3">
                            <div class="form-group">
                                <button type="submit" name="update1" id="update1" value="Update" class="btn btn-info pull-right" required="required">Update</button>
                            </div>
@@ -85,10 +68,10 @@
                      {% for row in Query1 %}
                         <tr>
                            <td>{{row["PropertyID"]}}</td>
-                           <td contenteditable="true">{{row["PropertyName"]}}</td>
-                           <td contenteditable="true"> {{row["City"]}}</td>
-                           <td contenteditable="true">{{row['MarketValue']}}</td> 
-                           <td contenteditable="true">{{row['Cost']}}</td>
+                           <td contenteditable="true" name="name" id="name">{{row["PropertyName"]}}</td>
+                           <td contenteditable="true" name="city" id="city"> {{row["City"]}}</td>
+                           <td contenteditable="true" name="value" id="value">{{row['MarketValue']}}</td> 
+                           <td contenteditable="true" name="cost" id="cost">{{row['Cost']}}</td>
                         </tr>
                      {% endfor %}
                   </table>

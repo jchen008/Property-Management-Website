@@ -1,6 +1,6 @@
 # Zhuo Chen
 
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask import Flask, render_template, request, url_for, jsonify, redirect
 import sqlite3 as sql
 
 app = Flask(__name__)
